@@ -1,7 +1,9 @@
 package com.kandid.backend.Controller;
 
+import com.kandid.backend.Model.Email;
 import com.kandid.backend.Model.UserSignUpForm;
 import com.kandid.backend.Service.FormService;
+import com.kandid.backend.Service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,9 @@ public class UserSignUpFormController {
 
     @Autowired
     private FormService _formService;
+
+    @Autowired
+    private MailService _mailService;
 
     @GetMapping("/all")
     public ResponseEntity<?> getAllForms() {
@@ -42,6 +47,8 @@ public class UserSignUpFormController {
 
     @PostMapping("/save")
     public ResponseEntity<?> saveForm(@RequestBody UserSignUpForm user) {
+        Email email = new Email(user.getEmail());
+        _mailService.sendMail(email);
         return new ResponseEntity<>(_formService.saveUserSignUpForm(user), HttpStatus.OK);
     }
 

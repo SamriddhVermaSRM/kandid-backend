@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/forms/user-signup")
+@RequestMapping("/api/forms/user-signup")
 public class UserSignUpFormController {
 
     @Autowired

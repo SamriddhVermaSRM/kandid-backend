@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("forms/contact-us") 
+@RequestMapping("/api/forms/contact-us")
 public class ContactUsFormController {
 
     @Autowired

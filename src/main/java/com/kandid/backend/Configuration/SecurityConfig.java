@@ -26,10 +26,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors(AbstractHttpConfigurer::disable);
         http.csrf(AbstractHttpConfigurer::disable);
-        http.authorizeHttpRequests(req -> req.requestMatchers(
-                "/api/forms/"
-                ).hasRole("ADMIN"));
         http.authorizeHttpRequests(req -> req.requestMatchers(HttpMethod.POST).permitAll());
+        http.authorizeHttpRequests(req -> req.requestMatchers(
+                "/api/forms/**"
+                ).hasRole("ADMIN"));
         http.httpBasic(Customizer.withDefaults());
         return http.build();
     }

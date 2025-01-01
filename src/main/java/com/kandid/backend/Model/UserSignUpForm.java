@@ -43,6 +43,7 @@ public class UserSignUpForm {
     @Column(name = "college_name")
     private String college;
 
+    @Getter
     @CreationTimestamp
     private Instant createdAt;
 }

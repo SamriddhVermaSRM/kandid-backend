@@ -26,6 +26,7 @@ public class ContactUsForm {
     @Getter @Setter
     private String message;
 
+    @Getter
     @CreationTimestamp
     private Instant createdAt;
 }

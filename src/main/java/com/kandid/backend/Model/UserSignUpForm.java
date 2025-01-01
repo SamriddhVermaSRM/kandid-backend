@@ -3,7 +3,9 @@ package com.kandid.backend.Model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.Instant;
 import java.util.Objects;
 
 @Entity
@@ -40,4 +42,7 @@ public class UserSignUpForm {
     @Getter @Setter
     @Column(name = "college_name")
     private String college;
+
+    @CreationTimestamp
+    private Instant createdAt;
 }
